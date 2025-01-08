@@ -1,22 +1,19 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.1",
     "info": {
+	"description":"This is for getting the Property details Tyler".,
         "title": "CTCTylerPropertyAPI",
         "version": "v1"
     },
-	"host": "172.17.2.136:1056",
-	"schemes":[
-	"http"
-	],
+	"host":"172.17.2.136:1056/",
+	"schemes":["http"],
+	"produces":[application/json],
     "paths": {
         "/CreateDocuments/create-document": {
             "post": {
                 "tags": [
                     "CreateDocuments"
                 ],
-				"operationsId":"CreateDocuments_CreateDocument",
-				"consumes": ["multipart/form-data"],
-				"produces":["application/json"],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -106,11 +103,6 @@
                 "tags": [
                     "GetToken"
                 ],
-				"operationsId": "",
-				"consumes":[],
-				"produces":[
-				"application/json"
-				],
                 "responses": {
                     "200": {
                         "description": "Success",
