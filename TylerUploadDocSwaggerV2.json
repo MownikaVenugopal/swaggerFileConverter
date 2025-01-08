@@ -1,0 +1,244 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "CTCTylerPropertyAPI",
+        "version": "v1"
+    },
+	"host": "172.17.2.136:1056",
+	"schemes":[
+	"http"
+	],
+    "paths": {
+        "/CreateDocuments/create-document": {
+            "post": {
+                "tags": [
+                    "CreateDocuments"
+                ],
+				"operationsId":"CreateDocuments_CreateDocument",
+				"consumes": ["multipart/form-data"],
+				"produces":["application/json"],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "Rank": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    "Parid": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "Jur": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "Card": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "Taxyr": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    "Category": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "DocumentTypeName": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "FilesToUpload": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            "encoding": {
+                                "Rank": {
+                                    "style": "form"
+                                },
+                                "Parid": {
+                                    "style": "form"
+                                },
+                                "Jur": {
+                                    "style": "form"
+                                },
+                                "Card": {
+                                    "style": "form"
+                                },
+                                "Taxyr": {
+                                    "style": "form"
+                                },
+                                "Category": {
+                                    "style": "form"
+                                },
+                                "DocumentTypeName": {
+                                    "style": "form"
+                                },
+                                "FilesToUpload": {
+                                    "style": "form"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateDocumentResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/GetToken": {
+            "get": {
+                "tags": [
+                    "GetToken"
+                ],
+				"operationsId": "",
+				"consumes":[],
+				"produces":[
+				"application/json"
+				],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTokenResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTokenResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTokenResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateDocReponseFields": {
+                "type": "object",
+                "properties": {
+                    "Photo Capture Date": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Parid": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Jur": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Card": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Taxyr": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Category": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Notes": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CreateDocumentResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "filename": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "formattedSize": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "createdOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "rank": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fields": {
+                        "$ref": "#/components/schemas/CreateDocReponseFields"
+                    },
+                    "edmsDownloadUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "documentTypeName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "categoryName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "system": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetTokenResponse": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    }
+}
